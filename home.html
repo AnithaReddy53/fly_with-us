@@ -1,0 +1,268 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Document</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device, initial scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.8/css/bootstrap.min.css"
+        integrity="sha512-2bBQCjcnw658Lho4nlXJcc6WkV/UxpE/sAokbXPxQNGqmNdQrWqtw26Ns9kFF/yG792pKR1Sx8/Y1Lf1XN4GKA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.8/js/bootstrap.bundle.js"
+        integrity="sha512-RIzT5kuaKdKfx6gxL8ZuzemSJbSpEGz0eLGROuOSaovLbCdCsN9aQUILDyBJNdul9rReAK9pJ+cNk5EileUX4A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+        <div class="text-white fs-1">
+            <i class="fa-solid fa-plane"></i>
+        </div>
+        <div class="container-fluid">
+            <a href="" class="navbar-brand text-center fs-2">Fly with us</a>
+            <ul class="navbar-nav text-center fs-2 ps-3 m-3">
+                <li class="nav-item"><a class="nav-link" href="">Home</a></li>
+
+                <li class="nav-item"><a class="nav-link" href="">Stays</a></li>
+                <li class="nav-item"><a class="nav-link" href="">Car Rental</a></li>
+                <li class="nav-item"><button data-bs-toggle="modal" data-bs-target="#loginmodal"
+                        class="btn btn-secondary">Flights</button></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="modal fade" id="loginmodal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1>login here</h1>
+                    <button class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="col-md-12">
+                        <form action="">
+                            <div class="form-group">
+                                <label for="" class="form-label"></label>
+                                <input type="continue with google" class="form-control"
+                                    placeholder="continue with google">
+                                <label for="" class="form-label">mail</label>
+                                <input type="continue with mail" class="form-control" placeholder="continue with mail">
+                            </div>
+                            <div class="form-groups">
+                                <button type="submit" class="btn btn-secondary">submit</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <button class="carousel-control-prev" data-bs-target="#car" data-bs-slide="prev"><span
+            class="carousel-control-prev-icon bg-dark"></span></button>
+    <button class="carousel-control-next" data-bs-target="#car" data-bs-slide="next"><span
+            class="carousel-control-next-icon bg-dark"></span></button>
+    <div class="container-fluid ">
+        <div class="row">
+            <div class="carousel slide" id="car" data-bs-ride="carousel" data-bs-interval="3000">
+                <div class="carousel-inner pt-3 pb-3">
+                    <div class="carousel-item active">
+                        <div class="text-center ">
+                            <img src="flyimg1.jpg" class="img-fluid img-thumbnail w-75">
+                            <div class="carousel-caption bg-dark">
+                                <h1> A best flights, you'll love the way you live</h1>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class=" text-center ">
+                            <img src="flyimg2.jpg" class="img-fluid img-thumbnail w-75">
+                            <div class="carousel-caption bg-dark">
+                                <h1>fly with us</h1>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="text-center ">
+                            <img src="flyimg3.jpg" class="img-fluid img-thumbnail w-75">
+                            <div class="carousel-caption bg-dark">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class=" text-center ">
+                            <img src="flyimg4.jpg" class="img-fluid img-thumbnail w-75">
+                            <div class="carousel-caption bg-dark">
+                                <h1></h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr>
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-4 col-md-4">
+                <img src="flybutton.jpg" class="img-thumbnail img-fluid">
+            </div>
+            <div class="col-4 col-md-4">
+                <img src="buttoncar.jpg" class="img-fluid img-thumbnail">
+            </div>
+            <div class="col-4 col-md-4">
+                <img src="staysbutton.jpg" class="img-fluid img-thumbnail">
+            </div>
+        </div>
+        <br><br><br>
+        <div class="row ms-5 ps-1 fs-3">
+            <div class="col-12 col-md-6">
+                <label form="name">Depature</label>
+                <input type="text" id="name" placeholder="from?" class="img-thumbnail">
+                <label from="name1">Arrival</label>
+                <input type="text" id="name1" placeholder="to" class="img-thumbnail">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4 text-center pt-5">
+                <div class="fs-3">
+                    <button class="btn btn-secondary" data-bs-toggle="collapse" data-bs-target="#calendar">
+                        <i class="fa-solid fa-plane-up"></i>
+                    </button>
+
+                    <h1 class="d-inline">Flights</h1>
+                </div>
+
+                <div class="collapse mt-3" id="calendar">
+                    <input type="datetime-local" class="form-control">
+                </div>
+                <button class="btn btn-warning mt-3"> Book now </button>
+            </div>
+            <div class="col-4 text-center pt-5">
+                <div class="fs-3">
+                    <button class="btn btn-secondary" data-bs-toggle="collapse" data-bs-target="#content">
+                        <i class="fa-solid fa-car-side"></i></button>
+                    <h1 class="d-inline">Car Rental</h1>
+                </div>
+                <div class="collapse mt-3" id="content">
+                    <input type="datetime-local" class="form-control">
+                </div>
+                <button class="btn btn-warning mt-3">Book now</button>
+            </div>
+            <div class="col-4 text-center pt-5">
+                <div class="fs-3">
+                    <button class="btn btn-secondary" data-bs-toggle="collapse" data-bs-target="#content1">
+                        <i class="fa-solid fa-bed"></i></button>
+                    <h1 class="d-inline">Stay</h1>
+                </div>
+                <div class="collapse mt-3" id="content1">
+                    <input type="datetime-local" class="form-control">
+                </div>
+                <button class="btn btn-warning mt-3">Book no</button>
+            </div>
+        </div>
+        </div>
+        <hr>
+        <div class="container-fluid">
+            <div class="row mt-3">
+                <div class="text-center">
+                    <h1>Car rentals wherever you go</h1>
+                    <div class="text-secondary">
+                        <h3>fly with us offers rental cars too! We're here to help you rent a car by showing you the
+                            best
+                            car hire deals from the most popular providers in the world to get you where you want to go
+                        </h3>
+                    </div>
+                </div>
+                <div class="col-3 col-md-4">
+                    <img src="car3.jpg" class="img-fluid img-thumbnail">
+                </div>
+                <div class="col-3 col-md-4">
+                    <img src="carbrandsss.jpg" class="img-fluid img-thumbnail">
+                </div>
+                <div class="col-3 col-md-4">
+                    <img src="car2.jpg" class="img-fluid img-thumbnail">
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="text-center">
+                    <h1>where do you want to stay</h1>
+                    <div class="text-secondary content fs-3">
+                        <p> At fly with us, we are committed to making your hotel search effortless, ensuring you
+                             access the best accommodations available. Our advanced search technology meticulously
+                             curates a wide selection of hotels tailored to your specific preferences. Understanding
+                             the importance of timing in securing affordable stays, we provide valuable insights to 
+                             help you identify the most cost-effective dates to book. Our user-friendly platform is 
+                             designed to keep you informed of an price drops, ensuring you never miss an opportunity
+                             to save on your accommodation. Whether it's a spontaneous getaway or a carefully planned 
+                             trip, fly with us is your trusted travel companion, simplifying the complexities of hotel
+                            booking with confidence. Explore the world with fly with us, where your next stay begins 
+                            with a click and savings are always within reach.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-3 col-md-4 mt-1">
+                    <img src="stay1.jpg" class="img-fluid img-thumbnail">
+                </div>
+                <div class="col-3 col-md-4">
+                    <img src="hotel1.jpg" class="img-fluid img-thumbnail">
+                </div>
+                <div class="col-3 col-md-4">
+                    <img src="stay2.jpg" class="img-fluid img-thumbnail">
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="container-fluid">
+            <div class="row text-center">
+                <h1>For travel Pros</h1>
+                
+            </div>
+            <div class="col-3 col-md-4">
+                <img src="" class="img-fluid img-thumbnail">
+            </div>
+        </div>
+        <hr>
+        <footer>
+            <div class="container-fluid bg-secondary">
+                <div class="text-center text-decoration-underline text-white">
+                    <h1>Want to contact us?</h1>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-md-3 text-black fs-2">
+                        <h2>Company</h2>
+                        <p>About</p>
+                        <p>mobile</p>
+                        <p>how we work</p>
+                    </div>
+                    <div class="col-12 col-md-3">
+                        <div class="fs-2 text-black">
+                            <h2>Contact</h2>
+                            <p>Help/FAQ</p>
+                            <p>Press</p>
+                            <p>Publishers</p>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-3">
+                        <div class="fs-2 text-black">
+                            <h2>More</h2>
+                            <p>Airline fees</p>
+                            <p>Airlines</p>
+                            <p>Security</p>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-3 fs-1">
+                        <i class="fa-brands fa-instagram"></i>
+                        <i class="fa-brands fa-youtube"></i>
+                        <i class="fa-brands fa-facebook"></i>
+                    </div>
+                </div>
+                <div class="row  text-end text-black">
+                    <h3>copyrights@flywithus</h3>
+                </div>
+            </div>
+        </footer>
+</body>
+</html>

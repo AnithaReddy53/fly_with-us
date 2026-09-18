@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Document</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device, initial scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.8/css/bootstrap.min.css"
+        integrity="sha512-2bBQCjcnw658Lho4nlXJcc6WkV/UxpE/sAokbXPxQNGqmNdQrWqtw26Ns9kFF/yG792pKR1Sx8/Y1Lf1XN4GKA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.8/js/bootstrap.bundle.js"
+        integrity="sha512-RIzT5kuaKdKfx6gxL8ZuzemSJbSpEGz0eLGROuOSaovLbCdCsN9aQUILDyBJNdul9rReAK9pJ+cNk5EileUX4A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    </head>
+<body>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-4 text-center pt-5">
+            <div class="fs-3">
+                <button class="btn btn-secondary"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#calendar">
+                    <i class="fa-solid fa-plane-up"></i>
+                </button>
+
+                <h1 class="d-inline">Flights</h1>
+            </div>
+
+            <div class="collapse mt-3" id="calendar">
+                <input type="datetime-local" class="form-control">
+            </div>
+
+            <button class="btn btn-warning mt-3">
+                Book now
+            </button>
+        </div>
+        <div class="col-4 text-center pt-5">
+            <div class="fs-3">
+                <button class="btn btn-secondary"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#content">
+                    <i class="fa-solid fa-car-side"></i>
+                </button>
+
+                <h1 class="d-inline">Car Rental</h1>
+            </div>
+
+            <div class="collapse mt-3" id="content">
+                <input type="datetime-local" class="form-control">
+            </div>
+
+            <button class="btn btn-warning mt-3">
+                Book now
+            </button>
+        </div>
+        <div class="col-4 text-center pt-5">
+            <div class="fs-3">
+                <button class="btn btn-secondary"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#content1">
+                    <i class="fa-solid fa-bed"></i>
+                </button>
+
+                <h1 class="d-inline">Stay</h1>
+            </div>
+
+            <div class="collapse mt-3" id="content1">
+                <input type="datetime-local" class="form-control">
+            </div>
+
+            <button class="btn btn-warning mt-3">
+                Book now
+            </button>
+        </div>
+
+    </div>
+</div>
+    </body>
+</html>
