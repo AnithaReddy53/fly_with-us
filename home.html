@@ -1,268 +1,991 @@
-<!doctype html>
-<html>
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>Document</title>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device, initial scale=1">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.8/css/bootstrap.min.css"
-        integrity="sha512-2bBQCjcnw658Lho4nlXJcc6WkV/UxpE/sAokbXPxQNGqmNdQrWqtw26Ns9kFF/yG792pKR1Sx8/Y1Lf1XN4GKA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.8/js/bootstrap.bundle.js"
-        integrity="sha512-RIzT5kuaKdKfx6gxL8ZuzemSJbSpEGz0eLGROuOSaovLbCdCsN9aQUILDyBJNdul9rReAK9pJ+cNk5EileUX4A=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fly With Us</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --navy: #10243a;
+            --orange: #ff784f;
+            --muted: #6b7785;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            color: var(--navy);
+            margin: 0;
+        }
+
+        .navbar {
+            background: var(--navy);
+            padding: 15px 0;
+        }
+
+        .navbar-brand {
+            font-size: 25px;
+            font-weight: bold;
+            color: white;
+        }
+
+        .navbar-brand span {
+            color: var(--orange);
+        }
+
+        .nav-link {
+            color: white !important;
+            margin: 0 8px;
+            font-weight: 600;
+        }
+
+        .nav-link:hover {
+            color: var(--orange) !important;
+        }
+
+        .btn-orange {
+            background: var(--orange);
+            color: white;
+            border: none;
+            border-radius: 30px;
+            padding: 11px 22px;
+            font-weight: bold;
+        }
+
+        .btn-orange:hover {
+            background: #ed633b;
+            color: white;
+        }
+        .hero {
+            min-height: 610px;
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(7,22,39,.82),
+                    rgba(7,22,39,.25)
+                ),
+                url('flyimg1.jpg') center/cover no-repeat;
+
+            display: flex;
+            align-items: center;
+            color: white;
+            padding: 80px 0;
+        }
+
+        .hero h1 {
+            font-size: clamp(40px, 5vw, 75px);
+            font-weight: 800;
+            max-width: 720px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: #edf2f7;
+            max-width: 570px;
+            margin: 22px 0 30px;
+        }
+        .search-wrap {
+            margin-top: -75px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .search-card {
+            background: white;
+            border-radius: 18px;
+            padding: 25px;
+            box-shadow: 0 15px 45px #10243a1c;
+        }
+
+        .nav-pills .nav-link {
+            color: var(--navy) !important;
+            border-radius: 25px;
+            padding: 10px 20px;
+        }
+
+        .nav-pills .nav-link.active {
+            background: var(--navy);
+            color: white !important;
+        }
+
+        .form-control,
+        .form-select {
+            min-height: 48px;
+            border-radius: 10px;
+        }
+        section {
+            padding: 75px 0;
+        }
+
+        .section-kicker {
+            color: var(--orange);
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .section-title {
+            font-weight: 800;
+            font-size: 40px;
+            margin: 8px 0 12px;
+        }
+
+        .section-sub {
+            color: var(--muted);
+        }
+        .destination-card,
+        .service-card {
+            border: none;
+            border-radius: 17px;
+            overflow: hidden;
+            box-shadow: 0 8px 28px #10243a12;
+            height: 100%;
+            transition: .25s;
+        }
+
+        .destination-card:hover,
+        .service-card:hover {
+            transform: translateY(-6px);
+        }
+
+        .destination-card img {
+            height: 220px;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .service-card img {
+            height: 190px;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .card-body {
+            padding: 20px;
+        }
+
+        .muted {
+            color: var(--muted);
+        }
+        .stay-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr 1fr;
+            grid-template-rows: 190px 190px;
+            gap: 14px;
+        }
+
+        .stay-grid img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 15px;
+        }
+
+        .stay-grid img:first-child {
+            grid-row: span 2;
+        }
+        .benefits {
+            background: #f7f8fa;
+        }
+
+        .benefit {
+            display: flex;
+            gap: 15px;
+            padding: 20px 5px;
+        }
+
+        .benefit i {
+            font-size: 25px;
+            color: var(--orange);
+            background: #fff0eb;
+            padding: 15px;
+            border-radius: 13px;
+        }
+        .newsletter {
+            background: var(--navy);
+            color: white;
+            border-radius: 22px;
+            padding: 40px;
+        }
+
+        .newsletter p {
+            color: #d4deea;
+        }
+        footer {
+            background: #0b1b2b;
+            color: #d9e1e9;
+            padding: 55px 0 20px;
+        }
+        footer h5 {
+            color: white;
+            font-weight: 800;
+            margin-bottom: 18px;
+        }
+        footer a {
+            display: block;
+            color: #c1ccd7;
+            text-decoration: none;
+            margin: 10px 0;
+        }
+
+        footer a:hover {
+            color: var(--orange);
+        }
+
+        .social a {
+            display: inline-block;
+            margin-right: 14px;
+            font-size: 20px;
+        }
+
+        .modal-content {
+            border: none;
+            border-radius: 18px;
+        }
+
+        .modal-header {
+            background: var(--navy);
+            color: white;
+            border-radius: 18px 18px 0 0;
+        }
+
+        .btn-close {
+            filter: invert(1);
+        }
+
+        @media(max-width: 767px) {
+            .hero {
+                min-height: 540px;
+                padding: 65px 0;
+            }
+
+            .search-wrap {
+                margin-top: -35px;
+            }
+
+            .stay-grid {
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: 170px 170px;
+            }
+
+            .stay-grid img:first-child {
+                grid-row: auto;
+                grid-column: span 2;
+            }
+
+            .newsletter {
+                padding: 28px;
+            }
+        }
+    </style>
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-        <div class="text-white fs-1">
-            <i class="fa-solid fa-plane"></i>
-        </div>
-        <div class="container-fluid">
-            <a href="" class="navbar-brand text-center fs-2">Fly with us</a>
-            <ul class="navbar-nav text-center fs-2 ps-3 m-3">
-                <li class="nav-item"><a class="nav-link" href="">Home</a></li>
 
-                <li class="nav-item"><a class="nav-link" href="">Stays</a></li>
-                <li class="nav-item"><a class="nav-link" href="">Car Rental</a></li>
-                <li class="nav-item"><button data-bs-toggle="modal" data-bs-target="#loginmodal"
-                        class="btn btn-secondary">Flights</button></li>
+<!-- NAVBAR -->
+
+<nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+    <div class="container">
+
+        <a class="navbar-brand" href="#">
+            <i class="fa-solid fa-plane-departure me-2"></i>
+            Fly <span>With Us</span>
+        </a>
+
+        <button class="navbar-toggler" type="button"
+            data-bs-toggle="collapse" data-bs-target="#mainNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="mainNav">
+
+            <ul class="navbar-nav ms-auto align-items-lg-center">
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#flights">Flights</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#stays">Stays</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#cars">Car Rental</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#about">Why Us</a>
+                </li>
+
+                <li class="nav-item ms-lg-2">
+                    <button class="btn btn-orange"
+                        data-bs-toggle="modal"
+                        data-bs-target="#loginModal">
+                        <i class="fa-regular fa-user me-2"></i>
+                        Sign In
+                    </button>
+                </li>
+
             </ul>
         </div>
-    </nav>
-    <div class="modal fade" id="loginmodal">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1>login here</h1>
-                    <button class="btn-close" data-bs-dismiss="modal"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="col-md-12">
-                        <form action="">
-                            <div class="form-group">
-                                <label for="" class="form-label"></label>
-                                <input type="continue with google" class="form-control"
-                                    placeholder="continue with google">
-                                <label for="" class="form-label">mail</label>
-                                <input type="continue with mail" class="form-control" placeholder="continue with mail">
-                            </div>
-                            <div class="form-groups">
-                                <button type="submit" class="btn btn-secondary">submit</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
+    </div>
+</nav>
+
+<!-- HERO SECTION -->
+
+<header class="hero">
+    <div class="container">
+
+        <div class="col-lg-8">
+
+            <span class="badge rounded-pill text-bg-light mb-3">
+                YOUR JOURNEY STARTS HERE
+            </span>
+
+            <h1>
+                Discover the world,
+                one journey at a time.
+            </h1>
+
+            <p>
+                Find flights, comfortable stays and the perfect ride.
+                Plan your next adventure with less effort and more excitement.
+            </p>
+
+            <a href="#flights" class="btn btn-orange btn-lg">
+                Explore Journeys
+                <i class="fa-solid fa-arrow-right ms-2"></i>
+            </a>
+
         </div>
     </div>
-    <button class="carousel-control-prev" data-bs-target="#car" data-bs-slide="prev"><span
-            class="carousel-control-prev-icon bg-dark"></span></button>
-    <button class="carousel-control-next" data-bs-target="#car" data-bs-slide="next"><span
-            class="carousel-control-next-icon bg-dark"></span></button>
-    <div class="container-fluid ">
-        <div class="row">
-            <div class="carousel slide" id="car" data-bs-ride="carousel" data-bs-interval="3000">
-                <div class="carousel-inner pt-3 pb-3">
-                    <div class="carousel-item active">
-                        <div class="text-center ">
-                            <img src="flyimg1.jpg" class="img-fluid img-thumbnail w-75">
-                            <div class="carousel-caption bg-dark">
-                                <h1> A best flights, you'll love the way you live</h1>
-                            </div>
-                        </div>
+</header>
+<div class="container search-wrap" id="flights">
+
+    <div class="search-card">
+
+        <ul class="nav nav-pills gap-2 mb-4">
+
+            <li class="nav-item">
+                <button class="nav-link active"
+                    data-bs-toggle="pill"
+                    data-bs-target="#flightPane">
+                    <i class="fa-solid fa-plane me-2"></i>
+                    Flights
+                </button>
+            </li>
+
+            <li class="nav-item">
+                <button class="nav-link"
+                    data-bs-toggle="pill"
+                    data-bs-target="#stayPane">
+                    <i class="fa-solid fa-bed me-2"></i>
+                    Stays
+                </button>
+            </li>
+
+            <li class="nav-item">
+                <button class="nav-link"
+                    data-bs-toggle="pill"
+                    data-bs-target="#carPane">
+                    <i class="fa-solid fa-car me-2"></i>
+                    Car Rental
+                </button>
+            </li>
+
+        </ul>
+
+        <div class="tab-content">
+            <div class="tab-pane fade show active" id="flightPane">
+
+                <form class="demo-form row g-3 align-items-end">
+
+                    <div class="col-md-3">
+                        <label class="form-label">From</label>
+                        <input class="form-control"
+                            list="cities"
+                            placeholder="Departure city" required>
                     </div>
-                    <div class="carousel-item">
-                        <div class=" text-center ">
-                            <img src="flyimg2.jpg" class="img-fluid img-thumbnail w-75">
-                            <div class="carousel-caption bg-dark">
-                                <h1>fly with us</h1>
-                            </div>
-                        </div>
+
+                    <div class="col-md-3">
+                        <label class="form-label">To</label>
+                        <input class="form-control"
+                            list="cities"
+                            placeholder="Arrival city" required>
                     </div>
-                    <div class="carousel-item">
-                        <div class="text-center ">
-                            <img src="flyimg3.jpg" class="img-fluid img-thumbnail w-75">
-                            <div class="carousel-caption bg-dark">
-                            </div>
-                        </div>
+
+                    <div class="col-md-2">
+                        <label class="form-label">Departure</label>
+                        <input type="date" class="form-control" required>
                     </div>
-                    <div class="carousel-item">
-                        <div class=" text-center ">
-                            <img src="flyimg4.jpg" class="img-fluid img-thumbnail w-75">
-                            <div class="carousel-caption bg-dark">
-                                <h1></h1>
-                            </div>
-                        </div>
+
+                    <div class="col-md-2">
+                        <label class="form-label">Travellers</label>
+                        <select class="form-select">
+                            <option>1 traveller</option>
+                            <option>2 travellers</option>
+                            <option>3 travellers</option>
+                            <option>4+ travellers</option>
+                        </select>
                     </div>
-                </div>
+
+                    <div class="col-md-2">
+                        <button class="btn btn-orange w-100">
+                            Search Flights
+                        </button>
+                    </div>
+
+                </form>
             </div>
+            <div class="tab-pane fade" id="stayPane">
+
+                <form class="demo-form row g-3 align-items-end">
+
+                    <div class="col-md-4">
+                        <label class="form-label">Destination</label>
+                        <input class="form-control"
+                            placeholder="Where are you going?" required>
+                    </div>
+
+                    <div class="col-md-3">
+                        <label class="form-label">Check In</label>
+                        <input type="date" class="form-control" required>
+                    </div>
+
+                    <div class="col-md-3">
+                        <label class="form-label">Check Out</label>
+                        <input type="date" class="form-control" required>
+                    </div>
+
+                    <div class="col-md-2">
+                        <button class="btn btn-orange w-100">
+                            Find Stays
+                        </button>
+                    </div>
+
+                </form>
+            </div>
+            <div class="tab-pane fade" id="carPane">
+
+                <form class="demo-form row g-3 align-items-end">
+
+                    <div class="col-md-4">
+                        <label class="form-label">Pick-up Location</label>
+                        <input class="form-control"
+                            placeholder="Enter a city" required>
+                    </div>
+
+                    <div class="col-md-3">
+                        <label class="form-label">Pick-up Date</label>
+                        <input type="date" class="form-control" required>
+                    </div>
+
+                    <div class="col-md-3">
+                        <label class="form-label">Drop-off Date</label>
+                        <input type="date" class="form-control" required>
+                    </div>
+
+                    <div class="col-md-2">
+                        <button class="btn btn-orange w-100">
+                            Find Cars
+                        </button>
+                    </div>
+
+                </form>
+            </div>
+
         </div>
-        <hr>
+
+        <datalist id="cities">
+            <option>Hyderabad</option>
+            <option>Visakhapatnam</option>
+            <option>Vijayawada</option>
+            <option>Bengaluru</option>
+            <option>Chennai</option>
+            <option>Delhi</option>
+            <option>Mumbai</option>
+            <option>Goa</option>
+        </datalist>
+
     </div>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-4 col-md-4">
-                <img src="flybutton.jpg" class="img-thumbnail img-fluid">
-            </div>
-            <div class="col-4 col-md-4">
-                <img src="buttoncar.jpg" class="img-fluid img-thumbnail">
-            </div>
-            <div class="col-4 col-md-4">
-                <img src="staysbutton.jpg" class="img-fluid img-thumbnail">
-            </div>
-        </div>
-        <br><br><br>
-        <div class="row ms-5 ps-1 fs-3">
-            <div class="col-12 col-md-6">
-                <label form="name">Depature</label>
-                <input type="text" id="name" placeholder="from?" class="img-thumbnail">
-                <label from="name1">Arrival</label>
-                <input type="text" id="name1" placeholder="to" class="img-thumbnail">
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-4 text-center pt-5">
-                <div class="fs-3">
-                    <button class="btn btn-secondary" data-bs-toggle="collapse" data-bs-target="#calendar">
-                        <i class="fa-solid fa-plane-up"></i>
-                    </button>
+</div>
+<section id="destinations">
 
-                    <h1 class="d-inline">Flights</h1>
-                </div>
+    <div class="container">
 
-                <div class="collapse mt-3" id="calendar">
-                    <input type="datetime-local" class="form-control">
-                </div>
-                <button class="btn btn-warning mt-3"> Book now </button>
-            </div>
-            <div class="col-4 text-center pt-5">
-                <div class="fs-3">
-                    <button class="btn btn-secondary" data-bs-toggle="collapse" data-bs-target="#content">
-                        <i class="fa-solid fa-car-side"></i></button>
-                    <h1 class="d-inline">Car Rental</h1>
-                </div>
-                <div class="collapse mt-3" id="content">
-                    <input type="datetime-local" class="form-control">
-                </div>
-                <button class="btn btn-warning mt-3">Book now</button>
-            </div>
-            <div class="col-4 text-center pt-5">
-                <div class="fs-3">
-                    <button class="btn btn-secondary" data-bs-toggle="collapse" data-bs-target="#content1">
-                        <i class="fa-solid fa-bed"></i></button>
-                    <h1 class="d-inline">Stay</h1>
-                </div>
-                <div class="collapse mt-3" id="content1">
-                    <input type="datetime-local" class="form-control">
-                </div>
-                <button class="btn btn-warning mt-3">Book no</button>
-            </div>
-        </div>
-        </div>
-        <hr>
-        <div class="container-fluid">
-            <div class="row mt-3">
-                <div class="text-center">
-                    <h1>Car rentals wherever you go</h1>
-                    <div class="text-secondary">
-                        <h3>fly with us offers rental cars too! We're here to help you rent a car by showing you the
-                            best
-                            car hire deals from the most popular providers in the world to get you where you want to go
-                        </h3>
-                    </div>
-                </div>
-                <div class="col-3 col-md-4">
-                    <img src="car3.jpg" class="img-fluid img-thumbnail">
-                </div>
-                <div class="col-3 col-md-4">
-                    <img src="carbrandsss.jpg" class="img-fluid img-thumbnail">
-                </div>
-                <div class="col-3 col-md-4">
-                    <img src="car2.jpg" class="img-fluid img-thumbnail">
-                </div>
-            </div>
-        </div>
-        <hr>
-        <div class="container-fluid">
-            <div class="row">
-                <div class="text-center">
-                    <h1>where do you want to stay</h1>
-                    <div class="text-secondary content fs-3">
-                        <p> At fly with us, we are committed to making your hotel search effortless, ensuring you
-                             access the best accommodations available. Our advanced search technology meticulously
-                             curates a wide selection of hotels tailored to your specific preferences. Understanding
-                             the importance of timing in securing affordable stays, we provide valuable insights to 
-                             help you identify the most cost-effective dates to book. Our user-friendly platform is 
-                             designed to keep you informed of an price drops, ensuring you never miss an opportunity
-                             to save on your accommodation. Whether it's a spontaneous getaway or a carefully planned 
-                             trip, fly with us is your trusted travel companion, simplifying the complexities of hotel
-                            booking with confidence. Explore the world with fly with us, where your next stay begins 
-                            with a click and savings are always within reach.
+        <div class="section-kicker">Get Inspired</div>
+
+        <h2 class="section-title">Popular Destinations</h2>
+
+        <p class="section-sub">
+            A few places worth adding to your travel list.
+        </p>
+
+        <div class="row g-4 mt-2">
+
+            <div class="col-sm-6 col-lg-3">
+                <div class="card destination-card">
+                    <img src="flyimg2.jpg" alt="Travel destination">
+                    <div class="card-body">
+                        <h5>Explore New Places</h5>
+                        <p class="muted">
+                            Make memories beyond your everyday routine.
                         </p>
                     </div>
                 </div>
-                <div class="col-3 col-md-4 mt-1">
-                    <img src="stay1.jpg" class="img-fluid img-thumbnail">
+            </div>
+
+            <div class="col-sm-6 col-lg-3">
+                <div class="card destination-card">
+                    <img src="flyimg3.jpg" alt="Scenic destination">
+                    <div class="card-body">
+                        <h5>Find Your Escape</h5>
+                        <p class="muted">
+                            Discover beautiful views and relaxing moments.
+                        </p>
+                    </div>
                 </div>
-                <div class="col-3 col-md-4">
-                    <img src="hotel1.jpg" class="img-fluid img-thumbnail">
+            </div>
+
+            <div class="col-sm-6 col-lg-3">
+                <div class="card destination-card">
+                    <img src="flyimg4.jpg" alt="Holiday destination">
+                    <div class="card-body">
+                        <h5>Travel Together</h5>
+                        <p class="muted">
+                            Share the journey with the people you love.
+                        </p>
+                    </div>
                 </div>
-                <div class="col-3 col-md-4">
-                    <img src="stay2.jpg" class="img-fluid img-thumbnail">
+            </div>
+
+            <div class="col-sm-6 col-lg-3">
+                <div class="card destination-card">
+                    <img src="flyimg1.jpg" alt="Adventure destination">
+                    <div class="card-body">
+                        <h5>Start An Adventure</h5>
+                        <p class="muted">
+                            Your next favourite story starts with a trip.
+                        </p>
+                    </div>
                 </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+<section class="pt-0" id="cars">
+
+    <div class="container">
+
+        <div class="section-kicker">Move Your Way</div>
+
+        <h2 class="section-title">
+            Car Rentals For Every Plan
+        </h2>
+
+        <p class="section-sub mb-4">
+            Choose a ride that fits your route, group and travel style.
+        </p>
+
+        <div class="row g-4">
+
+            <div class="col-md-4">
+                <div class="card service-card">
+                    <img src="car3.jpg" alt="Rental car">
+
+                    <div class="card-body">
+                        <h5>City Rides</h5>
+                        <p class="muted">
+                            Comfortable options for everyday city exploring.
+                        </p>
+                        <a href="#flights" class="text-decoration-none fw-bold">
+                            Explore Cars →
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card service-card">
+                    <img src="carbrandsss.jpg" alt="Car brands">
+
+                    <div class="card-body">
+                        <h5>Choose Your Style</h5>
+                        <p class="muted">
+                            Find a vehicle that matches your travel needs.
+                        </p>
+                        <a href="#flights" class="text-decoration-none fw-bold">
+                            View Options →
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card service-card">
+                    <img src="car2.jpg" alt="Road trip car">
+
+                    <div class="card-body">
+                        <h5>Road Trip Ready</h5>
+                        <p class="muted">
+                            Make longer journeys feel easy and enjoyable.
+                        </p>
+                        <a href="#flights" class="text-decoration-none fw-bold">
+                            Plan A Drive →
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+<section class="pt-0" id="stays">
+
+    <div class="container">
+
+        <div class="row align-items-center g-5">
+
+            <div class="col-lg-5">
+
+                <div class="section-kicker">
+                    Stay Somewhere Special
+                </div>
+
+                <h2 class="section-title">
+                    A Good Stay Makes A Great Trip.
+                </h2>
+
+                <p class="section-sub">
+                    From cosy rooms to memorable hotels, find a place
+                    to relax after a day of exploring.
+                </p>
+
+                <a href="#flights" class="btn btn-orange mt-3">
+                    Discover Stays
+                </a>
+
+            </div>
+
+            <div class="col-lg-7">
+
+                <div class="stay-grid">
+                    <img src="stay1.jpg" alt="Hotel stay">
+                    <img src="hotel1.jpg" alt="Hotel room">
+                    <img src="stay2.jpg" alt="Holiday accommodation">
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</section>
+<section class="benefits" id="about">
+
+    <div class="container">
+
+        <div class="text-center mb-4">
+
+            <div class="section-kicker">
+                Travel Made Simpler
+            </div>
+
+            <h2 class="section-title">
+                Why Travel With Us?
+            </h2>
+
+            <p class="section-sub mx-auto">
+                Thoughtful tools and helpful details to make planning easy.
+            </p>
+
+        </div>
+
+        <div class="row g-4">
+
+            <div class="col-md-4">
+                <div class="benefit">
+                    <i class="fa-solid fa-compass"></i>
+                    <div>
+                        <h5>Easy Planning</h5>
+                        <p class="muted">
+                            Explore travel options from one simple place.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="benefit">
+                    <i class="fa-solid fa-heart"></i>
+                    <div>
+                        <h5>More Choice</h5>
+                        <p class="muted">
+                            Find options that suit your plans and preferences.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="benefit">
+                    <i class="fa-solid fa-headset"></i>
+                    <div>
+                        <h5>Here To Help</h5>
+                        <p class="muted">
+                            Keep your travel details organised in one place.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="newsletter mt-5">
+
+            <div class="row align-items-center g-3">
+
+                <div class="col-lg-7">
+                    <h2 class="fw-bold">
+                        Get Inspired For Your Next Trip.
+                    </h2>
+
+                    <p class="mb-0">
+                        Join our newsletter for travel ideas and updates.
+                    </p>
+                </div>
+
+                <div class="col-lg-5">
+
+                    <form id="newsletterForm" class="d-flex gap-2">
+
+                        <input type="email"
+                            class="form-control"
+                            placeholder="Your email address"
+                            required>
+
+                        <button class="btn btn-orange">
+                            Subscribe
+                        </button>
+
+                    </form>
+
+                </div>
+
             </div>
         </div>
-        <hr>
-        <div class="container-fluid">
-            <div class="row text-center">
-                <h1>For travel Pros</h1>
-                
+
+    </div>
+</section>
+<footer>
+
+    <div class="container">
+
+        <div class="row g-4">
+
+            <div class="col-lg-4">
+
+                <h5>
+                    <i class="fa-solid fa-plane-departure me-2"></i>
+                    Fly With Us
+                </h5>
+
+                <p class="text-white-50">
+                    Make every journey count. Explore, plan and travel
+                    with confidence.
+                </p>
+
+                <div class="social">
+                    <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+                    <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                </div>
+
             </div>
-            <div class="col-3 col-md-4">
-                <img src="" class="img-fluid img-thumbnail">
+
+            <div class="col-6 col-lg-2">
+                <h5>Company</h5>
+                <a href="#about">About Us</a>
+                <a href="#destinations">Destinations</a>
+                <a href="#cars">Car Rental</a>
+            </div>
+
+            <div class="col-6 col-lg-2">
+                <h5>Explore</h5>
+                <a href="#flights">Flights</a>
+                <a href="#stays">Stays</a>
+                <a href="#cars">Vehicles</a>
+            </div>
+
+            <div class="col-lg-4">
+                <h5>Contact</h5>
+                <a href="mailto:hello@flywithus.example">
+                    <i class="fa-regular fa-envelope me-2"></i>
+                    hello@flywithus.example
+                </a>
+
+                <a href="#">
+                    <i class="fa-solid fa-location-dot me-2"></i>
+                    India
+                </a>
+            </div>
+
+        </div>
+
+        <hr class="border-secondary mt-5">
+
+        <p class="text-center text-white-50 mb-0">
+            © <span id="year"></span> Fly With Us. All rights reserved.
+        </p>
+
+    </div>
+</footer>
+<div class="modal fade" id="loginModal" tabindex="-1">
+
+    <div class="modal-dialog modal-dialog-centered">
+
+        <div class="modal-content">
+
+            <div class="modal-header">
+
+                <h5 class="modal-title fw-bold">
+                    Welcome Back
+                </h5>
+
+                <button type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal">
+                </button>
+
+            </div>
+
+            <div class="modal-body p-4">
+
+                <p class="muted">
+                    Sign in to continue planning your journey.
+                </p>
+
+                <form id="loginForm">
+
+                    <div class="mb-3">
+                        <label class="form-label">
+                            Email Address
+                        </label>
+
+                        <input type="email"
+                            class="form-control"
+                            placeholder="name@example.com"
+                            required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">
+                            Password
+                        </label>
+
+                        <input type="password"
+                            class="form-control"
+                            placeholder="Enter password"
+                            required>
+                    </div>
+
+                    <button class="btn btn-orange w-100">
+                        Sign In
+                    </button>
+
+                </form>
+
+                <p class="small muted mt-3 text-center">
+                    Demo interface — authentication is not connected.
+                </p>
+
             </div>
         </div>
-        <hr>
-        <footer>
-            <div class="container-fluid bg-secondary">
-                <div class="text-center text-decoration-underline text-white">
-                    <h1>Want to contact us?</h1>
-                </div>
-                <div class="row">
-                    <div class="col-12 col-md-3 text-black fs-2">
-                        <h2>Company</h2>
-                        <p>About</p>
-                        <p>mobile</p>
-                        <p>how we work</p>
-                    </div>
-                    <div class="col-12 col-md-3">
-                        <div class="fs-2 text-black">
-                            <h2>Contact</h2>
-                            <p>Help/FAQ</p>
-                            <p>Press</p>
-                            <p>Publishers</p>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-3">
-                        <div class="fs-2 text-black">
-                            <h2>More</h2>
-                            <p>Airline fees</p>
-                            <p>Airlines</p>
-                            <p>Security</p>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-3 fs-1">
-                        <i class="fa-brands fa-instagram"></i>
-                        <i class="fa-brands fa-youtube"></i>
-                        <i class="fa-brands fa-facebook"></i>
-                    </div>
-                </div>
-                <div class="row  text-end text-black">
-                    <h3>copyrights@flywithus</h3>
-                </div>
-            </div>
-        </footer>
+    </div>
+</div>
+<div class="toast-container position-fixed bottom-0 end-0 p-3">
+
+    <div id="demoToast" class="toast" role="alert">
+
+        <div class="toast-header">
+            <strong class="me-auto">Fly With Us</strong>
+
+            <button type="button"
+                class="btn-close"
+                data-bs-dismiss="toast">
+            </button>
+        </div>
+
+        <div class="toast-body" id="toastMessage">
+            This is a demo.
+        </div>
+
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+
+    document.getElementById("year").textContent =
+        new Date().getFullYear();
+
+    function showMessage(message) {
+
+        document.getElementById("toastMessage").textContent =
+            message;
+
+        bootstrap.Toast.getOrCreateInstance(
+            document.getElementById("demoToast")
+        ).show();
+
+    }
+    document.querySelectorAll(".demo-form").forEach(form => {
+
+        form.addEventListener("submit", event => {
+
+            event.preventDefault();
+
+            showMessage(
+                "Connect a backend or travel API to display live results."
+            );
+
+        });
+
+    });
+    document.getElementById("loginForm")
+        .addEventListener("submit", event => {
+
+            event.preventDefault();
+
+            showMessage(
+                "Demo only: connect an authentication backend to enable sign in."
+            );
+
+            bootstrap.Modal.getOrCreateInstance(
+                document.getElementById("loginModal")
+            ).hide();
+
+        });
+    document.getElementById("newsletterForm")
+        .addEventListener("submit", event => {
+
+            event.preventDefault();
+
+            showMessage(
+                "Thanks for subscribing! Connect an email service to save subscriptions."
+            );
+
+            event.target.reset();
+
+        });
+
+</script>
+
 </body>
 </html>
